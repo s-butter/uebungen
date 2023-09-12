@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise 003_001: Filter</title>
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        /**
+         * Bitte schau dir folgenden BLOCK 1 an.
+         * Bitte verwende Array.prototype.filter()
+         * um nur Namen anzuzigen, in denen der Suchbegriff vorkommt.
+         * Mit this.users kannst du auf das users array zugreifen und mit
+         * this.search kannst du auf den aktuellen wert des input felds zugreifen.
+        **/
+        function filterComponent() {
+            return {
+                search: '',
+                users: [
+                    { name: 'Konstantin Hatvan' },
+                    { name: 'Sebastian Butter' },
+                    { name: 'Peter Horitzer' },
+                    { name: 'Andreas Penz' },
+                    { name: 'Philipp Neuteufel' },
+                ],
+                get filteredUsers() {
+                    /* ANFANG BLOCK 1 */
+                    return this.users;
+                    /* ENDE BLOCK 1 */
+                },
+            };
+        }
+    </script>
+
+    <div x-data="filterComponent">
+        <h2>Task 1: Filter</h2>
+
+        <p>Filter by name. Use the <code>Array.prototype.filter</code> method.</p>
+
+        <label>Filter by user: <input type="search" id="search" name="search" x-model="search" /></label>
+
+        <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+
+            <template x-for="(user, index) in filteredUsers" :key="index">
+                <tr>
+                    <td x-text="user.name"></td>
+                </tr>
+            </template>
+        </table>
+    </div>
+
+</body>
+
+</html>

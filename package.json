@@ -1,0 +1,13 @@
+{
+    "name": "browser-sync",
+    "version": "1.0.0",
+    "description": "browser-sync",
+    "main": "index.html",
+    "dependencies": {
+        "browser-sync": "^2.27.7"
+    },
+    "scripts": {
+        "watch": "browser-sync start --server --config ./browser-sync.config.js"
+    }
+}
+

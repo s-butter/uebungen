@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise 003_003: Reduce</title>
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+<script>
+    /**
+     * Bitte schau dir folgenden BLOCK 1 an.
+     * Bitte verwende Array.prototype.reduce()
+     * um den Gesamtpreis der cart zu berechnen
+     * mit this.cart kannst du auf das cart Array zugreifen
+    **/
+    function reduceComponent() {
+        return {
+            cart: [
+                { name: 'Product A', price: 1, quantity: 3 },
+                { name: 'Product B', price: 2, quantity: 2 },
+                { name: 'Product C', price: 3, quantity: 1 },
+            ],
+            get total() {
+                /* ANFANG BLOCK 1 */
+                return 0; // should return 10
+                /* ENDE BLOCK 1 */
+            },
+        };
+    }
+</script>
+
+<div x-data="reduceComponent">
+    <h2>Task 3: Reduce</h2>
+
+    <p>Calculate the total price of the cart. Use the <code>Array.prototype.reduce</code> method.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <template x-for="(key, index) in Object.keys(cart[0])" :key="index">
+                <th x-text="key"></th>
+            </template>
+            <th>subtotal</th>
+        </tr>
+        </thead>
+
+        <tbody>
+            <template x-for="(cartItem, index) in cart" :key="index">
+                <tr>
+                    <td x-text="cartItem.name"></td>
+                    <td x-text="cartItem.price + '€'"></td>
+                    <td x-text="cartItem.quantity"></td>
+                    <td x-text="cartItem.price * cartItem.quantity + '€'"></td>
+                </tr>
+            </template>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total cart price:</td>
+                <td x-text="total + '€'"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+</body>
+</html>

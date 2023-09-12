@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise 003_002: Map</title>
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+</head>
+
+<body>
+
+<script>
+    function mapComponent() {
+        return {
+            /**
+             * Bitte schau dir folgenden BLOCK 1 an.
+             * Bitte verwende Array.prototype.map()
+             * um jede Zahl mit sich selbst zu multiplizieren.
+             * mit this.numbers kannst du auf das numbers array zugreifen.
+            **/
+            numbers: [0, 1, 1, 2, 3, 5, 8, 13, 21],
+            get exponentiatedNumbers() {
+                /* ANFANG BLOCK 1 */
+                return this.numbers; // should return: 0 1 1 4 9 25 64 169 441
+                /* ENDE BLOCK 1 */
+            }
+        };
+    }
+</script>
+
+<div x-data="mapComponent">
+    <h2>Task 2: Map</h2>
+
+    <p>Exponentiate each of the fibonacci numbers by the power of 2. Use the <code>Array.prototype.map</code> method.</p>
+
+    <table>
+        <tr>
+            <th>Fibonacci numbers</th>
+
+            <template x-for="number in numbers">
+                <td x-text="number"></td>
+            </template>
+        </tr>
+        <tr>
+            <th>Fibonacci numbers to the power of 2</th>
+
+            <template x-for="number in exponentiatedNumbers">
+                <td x-text="number"></td>
+            </template>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Review</title>
+    <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="pt-6 pb-32 px-4">
+
+    <!-- 
+        Bitte schau dir folgenden BLOCK 1 an.
+        Schau dir an welche Klassen hier verwendet werden
+        und überlege ob man das Markup optimieren kann, ohne das Aussehen zu ändern.
+    -->
+    <div class="container mx-auto mb-10">
+        <h2 class="text-xl font-bold mb-4">Example 1</h2>
+        <!-- ANFANG BLOCK 1 -->
+        <div class="flex flex-col items-start flex-wrap relative">
+            <p class="w-full block static bg-lime-100 h-[200px]"></p>
+            <p class="w-full block static bg-lime-200 h-[200px]"></p>
+            <p class="w-full block static bg-lime-300 h-[200px]"></p>
+            <p class="w-full block static bg-lime-400 h-[200px]"></p>
+            <p class="w-full block static bg-lime-500 h-[200px]"></p>
+        </div>
+        <!-- ENDE BLOCK 1 -->
+    </div>
+
+    <!-- 
+        Bitte schau dir folgenden BLOCK 2 an.
+        Hier wird ein div gerendert das on click 
+        ein Dropdown ein- und wieder ausblendet.
+        Überleg dir, ob man den Code optimieren kann.
+        Danke dabei auch an Barrierefreiheit.
+    -->
+    <script>
+        function toggle() {
+            return {
+                open: false,
+            };
+        }
+        </script>
+    <div class="container mx-auto mb-10" x-data="toggle">
+        <h2 class="text-xl font-bold mb-4">Example 2</h2>
+        
+        <!-- ANFANG BLOCK 2 -->
+        <div @click="open = !open">
+            Show me some numbers
+        </div>
+        <ul :class="open ? 'opacity-full' : 'opacity-0'">
+            <li>1</li>
+            <li>2</li>
+            <li>2</li>
+            <li>4</li>
+        </ul>
+    </div>
+    
+    <!-- 
+        Bitte schau dir folgenden BLOCK 3 an.
+        Überleg dir, ob das Bild so richtig angezeigt wird
+        und ob man den Code, auch im Hinblick auf Performance, optimieren kann.
+    -->
+    <div class="container mx-auto" x-data="toggle">
+        <h2 class="text-xl font-bold mb-4">Example 3</h2>
+        
+        <!-- ANFANG BLOCK 3 -->
+        <img src="https://www.limesoda.com/fileadmin/_processed_/3/3/csm_Garten6_5eeaec1721.jpg" class="max-w-none" />
+        <!-- ENDE BLOCK 3 -->
+    </div>
+</body>
+
+</html>
